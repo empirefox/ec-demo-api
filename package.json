@@ -1,0 +1,29 @@
+{
+  "name": "ec-demo-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node app/server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jwt-simple": "^0.5.0",
+    "lodash": "^4.13.1",
+    "restify": "^4.1.1",
+    "typescript": "^2.1.0-dev.20160722"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.28",
+    "@types/hammerjs": "^2.0.28",
+    "@types/jasmine": "^2.2.29",
+    "@types/jwt-simple": "^0.2.28",
+    "@types/lodash": "0.0.28",
+    "@types/node": "^4.0.29",
+    "@types/source-map": "^0.1.26",
+    "@types/uglify-js": "^2.0.27",
+    "@types/webpack": "^1.12.29"
+  }
+}
