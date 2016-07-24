@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -15,6 +15,7 @@
       "jwt-simple",
       "lodash",
       "node",
+      "restify",
       "source-map",
       "uglify-js",
       "webpack"
