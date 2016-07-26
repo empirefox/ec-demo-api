@@ -14,10 +14,11 @@ import {
   groupbuyData,
   saveAddr, addrData, delAddr,
   deliveryData,
+  getWishItem,
 } from './fixtures';
 import { JsonData, timestap } from './utils';
 import { config } from './config';
-import { IBindPhoneData, AddCartItemRequest, SetCartQuantityRequest } from './models';
+import { IBindPhoneData, ICartItem, AddCartItemRequest, SetCartQuantityRequest } from './models';
 
 let server = createServer({
   name: 'ec-demo-api-server',
@@ -61,10 +62,26 @@ server.post('/bind_phone/:phone', (req, res, next) => {
 
 server.get('/userinfo', JsonData(userinfoData));
 server.get('/wishlist', JsonData(wishlistData));
-server.get('/wishlist/:id', (req, res, next) => {
-  let item = wishlistData.find(item => item.ID === (+req.params.id));
+server.post('/wishlist_add', (req, res, next) => {
+  let pid = +req.body.ProductID;
+  let item = wishlistData.find(item => item.ProductID === pid);
   if (item) {
     res.json(item);
+    return next();
+  } else if (pid === 1) {
+    item = getWishItem();
+    wishlistData.push(item);
+    res.json(item);
+    return next();
+  }
+  res.status(404);
+  return next({ error: 'product not found' });
+});
+server.del('/wishlist/:id', (req, res, next) => {
+  let index = wishlistData.findIndex(item => item.ID === (+req.params.id));
+  if (~index) {
+    wishlistData.splice(index, 1);
+    res.json('');
     return next();
   }
   res.status(404);
@@ -85,26 +102,27 @@ server.get('/order/:id', (req, res, next) => {
     return next();
   }
   res.status(404);
-  return next({ error: 'wishlist item not found' });
+  return next({ error: 'order item not found' });
 });
 
 server.get('/cart', JsonData(cartData));
 let cartId = 2;
 server.post('/cart_item', (req, res, next) => {
   let request = <AddCartItemRequest>req.body;
-  let item = skus.find(item => item.ID === request.SkuID);
-  if (item) {
-    cartData.unshift({
+  let sku = skus.find(item => item.ID === request.SkuID);
+  if (sku) {
+    let item: ICartItem = {
       ID: cartId++,
-      Img: item.Img || item.Product.Img,
-      Name: item.Product.Name,
+      Img: sku.Img || sku.Product.Img,
+      Name: sku.Product.Name,
       Type: 'XXL 黑色', // sku attrs
-      Price: item.SalePrice,
+      Price: sku.SalePrice,
       Quantity: request.Quantity,
       CreatedAt: timestap(0),
-      Sku: item,
-    });
-    res.json('');
+      Sku: sku,
+    };
+    cartData.unshift(item);
+    res.json(item);
     return next();
   }
   return next({ error: 'sku item not found' });
