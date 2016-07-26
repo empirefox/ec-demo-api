@@ -1,4 +1,4 @@
-import { createServer, acceptParser, queryParser, bodyParser, serveStatic,CORS } from 'restify';
+import { createServer, acceptParser, queryParser, bodyParser, serveStatic, CORS } from 'restify';
 import { encode, decode } from 'jwt-simple';
 
 import {
@@ -24,9 +24,9 @@ let server = createServer({
   version: '1.0.0'
 });
 server.use(CORS({
-    origins: ['http://127.0.0.1:3000'],   // defaults to ['*']
-    credentials: false,                 // defaults to false
-    headers: ['Origin, Authorization, Content-Type']                 // sets expose-headers
+  origins: ['http://127.0.0.1:3000'],   // defaults to ['*']
+  credentials: false,                 // defaults to false
+  headers: ['Origin, Authorization, Content-Type']                 // sets expose-headers
 }));
 server.use(acceptParser(server.acceptable));
 server.use(queryParser());
@@ -104,6 +104,7 @@ server.post('/cart_item', (req, res, next) => {
       CreatedAt: timestap(0),
       Sku: item,
     });
+    res.json('');
     return next();
   }
   return next({ error: 'sku item not found' });
@@ -113,6 +114,7 @@ server.post('/cart_item_quantity', (req, res, next) => {
   let item = cartData.find(item => item.ID === request.CartItemID);
   if (item) {
     item.Quantity = request.Quantity;
+    res.json('');
     return next();
   }
   return next({ error: 'cart item not found' });
@@ -121,6 +123,7 @@ server.del('/cart/:id', (req, res, next) => {
   let index = cartData.findIndex(item => item.ID === (+req.params.id));
   if (~index) {
     cartData.splice(index, 1);
+    res.json('');
     return next();
   }
   return next({ error: 'cart item not found' });
