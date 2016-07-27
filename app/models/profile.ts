@@ -5,4 +5,5 @@ export interface IProfile {
   WxAppId: string;
   WxScope: string;
   WxLoginPath: string;
+  DefaultHeadImage: string;
 }

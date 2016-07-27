@@ -70,7 +70,7 @@ let createSku = (ID: number, ProductID: number, Stock: number, Img: string, Sale
   return { ID, ProductID, Stock, Img, SalePrice, MarketPrice, Freight };
 }
 export const skus: ISku[] = [
-  createSku(1, 1, 99, `${config.url}/tj2.jpg`, 12000, 13000, 20000, products[0]),
+  createSku(1, 1, 99, `${config.url}/img/tj2.jpg`, 12000, 13000, 20000, products[0]),
 ];
 
 export const attrsData: IProductAttrsResponse = { Groups: groups, Attrs: attrs };

@@ -8,7 +8,7 @@ export function getWishItem() {
     CreatedAt: 1,
     Name: '',
     Img: '',
-    Price: '',
+    Price: 0,
     ProductID: 1,
     Product: products[0],
   };

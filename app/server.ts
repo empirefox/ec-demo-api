@@ -15,6 +15,7 @@ import {
   saveAddr, addrData, delAddr,
   deliveryData,
   getWishItem,
+  walletData,
 } from './fixtures';
 import { JsonData, timestap } from './utils';
 import { config } from './config';
@@ -34,7 +35,7 @@ server.use(queryParser());
 server.use(bodyParser());
 
 server.get('/profile', JsonData(profileData));
-server.get('/captcha', JsonData(captchaData));
+server.post('/captcha', JsonData(captchaData));
 server.get('/carousel', JsonData(carouselData));
 
 server.get('/oauth/update/:token', (req, res, next) => {
@@ -87,6 +88,8 @@ server.del('/wishlist/:id', (req, res, next) => {
   res.status(404);
   return next({ error: 'wishlist item not found' });
 });
+
+server.get('/wallet', JsonData(walletData));
 
 server.get('/orders', JsonData(ordersData));
 server.post('/order_pay', JsonData(ordersData[1]));

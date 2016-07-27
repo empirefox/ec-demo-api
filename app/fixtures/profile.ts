@@ -1,4 +1,5 @@
 import { IProfile } from '../models';
+import { config } from '../config';
 
 export const profileData: IProfile = {
   FreeDeliverLine: 199,
@@ -6,4 +7,5 @@ export const profileData: IProfile = {
   WxAppId: '',
   WxScope: '',
   WxLoginPath: '',
+  DefaultHeadImage: `${config}/img/boy.gif`,
 };

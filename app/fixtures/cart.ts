@@ -7,7 +7,7 @@ import { skus } from './product';
 export const cartData: ICartItem[] = [
   {
     ID: 1,
-    Img: '',
+    Img: `${config.url}/img/tj1.jpg`,
     Name: '',
     Type: 'XXL 黑色', // sku attrs
     Price: 100000,
