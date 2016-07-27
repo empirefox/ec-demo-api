@@ -26,7 +26,7 @@ let server = createServer({
   version: '1.0.0'
 });
 server.use(CORS({
-  origins: ['http://127.0.0.1:3000'],   // defaults to ['*']
+  origins: [config.origin],   // defaults to ['*']
   credentials: false,                 // defaults to false
   headers: ['Origin, Authorization, Content-Type']                 // sets expose-headers
 }));

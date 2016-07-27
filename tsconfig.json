@@ -18,7 +18,8 @@
       "restify",
       "source-map",
       "uglify-js",
-      "webpack"
+      "webpack",
+      "yargs"
     ]
   },
   "exclude": [
