@@ -7,5 +7,5 @@ export const profileData: IProfile = {
   WxAppId: '',
   WxScope: '',
   WxLoginPath: '',
-  DefaultHeadImage: `${config}/img/boy.gif`,
+  DefaultHeadImage: `${config.url}/img/boy.gif`,
 };
