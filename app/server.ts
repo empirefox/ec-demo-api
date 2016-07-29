@@ -16,6 +16,7 @@ import {
   deliveryData,
   getWishItem,
   walletData,
+  evalData, setEval, setEvals,
 } from './fixtures';
 import { JsonData, timestap } from './utils';
 import { config } from './config';
@@ -106,6 +107,24 @@ server.get('/order/:id', (req, res, next) => {
   }
   res.status(404);
   return next({ error: 'order item not found' });
+});
+
+server.get('/evals/:id', JsonData(evalData));
+server.post('/eval/:id', (req, res, next) => {
+  let item = setEval((+req.params.id), req.body);
+  if (item) {
+    res.json(item);
+    return next();
+  }
+  return next({ error: 'order item not found' });
+});
+server.post('/evals/:id', (req, res, next) => {
+  let order = setEvals((+req.params.id), req.body);
+  if (order) {
+    res.json(order);
+    return next();
+  }
+  return next({ error: 'order not found' });
 });
 
 server.get('/cart', JsonData(cartData));

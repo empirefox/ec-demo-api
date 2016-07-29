@@ -11,3 +11,4 @@ export * from './product';
 export * from './profile';
 export * from './user';
 export * from './wishlist';
+export * from './eval';

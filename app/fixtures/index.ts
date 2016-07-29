@@ -11,3 +11,4 @@ export * from './category';
 export * from './groupbuy';
 export * from './address';
 export * from './delivery';
+export * from './eval';

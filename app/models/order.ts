@@ -1,7 +1,8 @@
 import { ISku } from './product';
 import { IAddress } from './address';
+import { IEvalItem } from './eval';
 
-export interface IOrderItem {
+export interface IOrderItem extends IEvalItem {
   ID: number;
   OrderID: number;
   Quantity: number;

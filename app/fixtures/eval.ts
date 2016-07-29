@@ -1,0 +1,78 @@
+import { IEvalItem } from '../models';
+import { config } from '../config';
+import { timestap } from '../utils';
+
+export const evalData: IEvalItem = [
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-8000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-7000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-6000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-5000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-4000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-3000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-2000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+  {
+    Eval: '不错，不愧是索尼电视，很爱很爱很爱！谢谢京东！',
+    EvalAt: timestap(-1000),
+    EvalName: '罗**',
+    RateStar: 4,
+    RateFit: 4.9,
+    RateServe: 4.8,
+    RateDeliver: 4.7,
+  },
+];
